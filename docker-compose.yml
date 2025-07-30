@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Serviço da nossa aplicação FastAPI
+  app:
+    build: . # Constrói a imagem usando o Dockerfile na pasta atual
+    container_name: fastapi_app # Nome do contêiner
+    ports:
+      - "8000:8000" # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
+    #volumes:
+    #  - .:/app # Mapeia a pasta atual do projeto para a pasta /app dentro do contêiner
+                 # Isso permite que alterações no código local reflitam no contêiner instantaneamente (hot-reload)
+    environment:
+      # Variáveis de ambiente que a aplicação usará para conectar ao banco
+      - DATABASE_URL=mysql+pymysql://user:password@db:3306/expenses_db
+    depends_on:
+      - db # Diz ao Docker para iniciar o serviço 'db' antes de iniciar o 'app'
+
+  # Serviço do nosso banco de dados MySQL
+  db:
+    image: mysql:8.0 # Usa uma imagem oficial do MySQL
+    container_name: mysql_db # Nome do contêiner
+    ports:
+      - "3307:3306" # Mapeia a porta 3306 do contêiner para a 3307 da sua máquina
+                    # Usamos 3307 para não conflitar com uma possível instalação local do MySQL
+    environment:
+      # Variáveis de ambiente para configurar o MySQL na primeira inicialização
+      MYSQL_ROOT_PASSWORD: rootpassword # Senha do usuário root
+      MYSQL_DATABASE: expenses_db # Cria um banco de dados com este nome
+      MYSQL_USER: user # Cria um usuário
+      MYSQL_PASSWORD: password # Define a senha para este usuário
+    volumes:
+      - mysql_data:/var/lib/mysql # Persiste os dados do banco em um volume Docker
+                                  # Mesmo que o contêiner seja removido, os dados não serão perdidos
+
+volumes:
+  mysql_data: # Define o volume nomeado para persistência dos dados
