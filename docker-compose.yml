@@ -8,7 +8,7 @@ services:
     ports:
       - "8000:8000" # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
     #volumes:
-    #  - .:/app # Mapeia a pasta atual do projeto para a pasta /app dentro do contêiner
+    #   - .:/app # Mapeia a pasta atual do projeto para a pasta /app dentro do contêiner
                  # Isso permite que alterações no código local reflitam no contêiner instantaneamente (hot-reload)
     environment:
       # Variáveis de ambiente que a aplicação usará para conectar ao banco
