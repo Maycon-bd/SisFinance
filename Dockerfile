@@ -8,13 +8,15 @@ WORKDIR /app
 ENV PYTHONPATH /app
 
 # 4. Copia APENAS o arquivo de dependências para o diretório de trabalho
-COPY app/requirements.txt .
+# CORREÇÃO AQUI: Adicionado o caminho "Desenvolvimento/"
+COPY Desenvolvimento/backend/requirements.txt .
 
 # 5. Instala as dependências a partir do arquivo copiado
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 6. Copia todo o conteúdo da pasta 'app' do seu PC para o diretório de trabalho
-COPY app/ .
+# 6. Copia todo o conteúdo da pasta 'backend' do seu PC para o diretório de trabalho
+# CORREÇÃO AQUI: Adicionado o caminho "Desenvolvimento/"
+COPY Desenvolvimento/backend/ .
 
 # 7. Comando para iniciar a aplicação
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

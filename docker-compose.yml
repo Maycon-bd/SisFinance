@@ -1,20 +1,16 @@
-version: '3.8'
-
 services:
-  # Serviço da nossa aplicação FastAPI
   app:
-    build: . # Constrói a imagem usando o Dockerfile na pasta atual
-    container_name: fastapi_app # Nome do contêiner
+    build: .
+    container_name: fastapi_app
     ports:
-      - "8000:8000" # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
-    #volumes:
-    #   - .:/app # Mapeia a pasta atual do projeto para a pasta /app dentro do contêiner
-                 # Isso permite que alterações no código local reflitam no contêiner instantaneamente (hot-reload)
-    environment:
-      # Variáveis de ambiente que a aplicação usará para conectar ao banco
-      - DATABASE_URL=mysql+pymysql://user:password@db:3306/expenses_db
+      - "8000:8000"
+    env_file:
+      - ./.env
+    volumes:
+      # CORREÇÃO AQUI: Adicionado o caminho "Desenvolvimento/"
+      - ./Desenvolvimento/backend:/app
     depends_on:
-      - db # Diz ao Docker para iniciar o serviço 'db' antes de iniciar o 'app'
+      - db
 
   # Serviço do nosso banco de dados MySQL
   db:
