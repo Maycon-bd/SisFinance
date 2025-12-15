@@ -1,0 +1,152 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SISFINANCE - MATERIAL DESIGN 3 DESIGN TOKENS
+   Dark Mode Theme following Google's Material You specifications
+═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ═══════════════════════════════════════════════════
+     SURFACE & BACKGROUND
+     Material 3 recommends slightly tinted grays
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-background: #0F0D13;
+    --md-sys-color-surface: #1D1B20;
+    --md-sys-color-surface-dim: #141218;
+    --md-sys-color-surface-bright: #3B383E;
+    --md-sys-color-surface-variant: #49454F;
+    --md-sys-color-surface-container-lowest: #0F0D11;
+    --md-sys-color-surface-container-low: #1D1B20;
+    --md-sys-color-surface-container: #211F26;
+    --md-sys-color-surface-container-high: #2B2930;
+    --md-sys-color-surface-container-highest: #36343B;
+
+    /* ═══════════════════════════════════════════════════
+     PRIMARY (Main actions - Vibrant Purple)
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-primary: #D0BCFF;
+    --md-sys-color-primary-container: #4F378B;
+    --md-sys-color-on-primary: #381E72;
+    --md-sys-color-on-primary-container: #EADDFF;
+    --md-sys-color-inverse-primary: #6750A4;
+
+    /* ═══════════════════════════════════════════════════
+     SECONDARY (Secondary elements)
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-secondary: #CCC2DC;
+    --md-sys-color-secondary-container: #4A4458;
+    --md-sys-color-on-secondary: #332D41;
+    --md-sys-color-on-secondary-container: #E8DEF8;
+
+    /* ═══════════════════════════════════════════════════
+     TERTIARY (Accent details - Pink/Rose)
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-tertiary: #EFB8C8;
+    --md-sys-color-tertiary-container: #633B48;
+    --md-sys-color-on-tertiary: #492532;
+    --md-sys-color-on-tertiary-container: #FFD8E4;
+
+    /* ═══════════════════════════════════════════════════
+     SEMANTIC - SUCCESS/INCOME (Soft Green)
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-success: #7DDC7F;
+    --md-sys-color-success-container: #1B5E20;
+    --md-sys-color-on-success: #003A00;
+    --md-sys-color-on-success-container: #A5F5A8;
+
+    /* ═══════════════════════════════════════════════════
+     SEMANTIC - ERROR/EXPENSE (Soft Red)
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-error: #F2B8B5;
+    --md-sys-color-error-container: #8C1D18;
+    --md-sys-color-on-error: #601410;
+    --md-sys-color-on-error-container: #F9DEDC;
+
+    /* ═══════════════════════════════════════════════════
+     TEXT & CONTENT
+  ═══════════════════════════════════════════════════ */
+    --md-sys-color-on-background: #E6E1E5;
+    --md-sys-color-on-surface: #E6E1E5;
+    --md-sys-color-on-surface-variant: #CAC4D0;
+    --md-sys-color-outline: #938F99;
+    --md-sys-color-outline-variant: #49454F;
+    --md-sys-color-inverse-surface: #E6E1E5;
+    --md-sys-color-inverse-on-surface: #313033;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-shadow: #000000;
+
+    /* ═══════════════════════════════════════════════════
+     SPACING - 8pt Grid System
+  ═══════════════════════════════════════════════════ */
+    --spacing-0: 0px;
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-7: 28px;
+    --spacing-8: 32px;
+    --spacing-10: 40px;
+    --spacing-12: 48px;
+    --spacing-16: 64px;
+    --spacing-20: 80px;
+
+    /* ═══════════════════════════════════════════════════
+     BORDER RADIUS - Material 3
+  ═══════════════════════════════════════════════════ */
+    --radius-none: 0px;
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-xxl: 28px;
+    --radius-full: 9999px;
+
+    /* ═══════════════════════════════════════════════════
+     ELEVATION - Material 3 Dark Theme Shadows
+  ═══════════════════════════════════════════════════ */
+    --md-sys-elevation-0: none;
+    --md-sys-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --md-sys-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --md-sys-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --md-sys-elevation-4: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.3);
+    --md-sys-elevation-5: 0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.3);
+
+    /* ═══════════════════════════════════════════════════
+     STATE LAYERS - Material 3 Interaction States
+  ═══════════════════════════════════════════════════ */
+    --md-sys-state-hover-opacity: 0.08;
+    --md-sys-state-focus-opacity: 0.12;
+    --md-sys-state-pressed-opacity: 0.12;
+    --md-sys-state-dragged-opacity: 0.16;
+
+    --md-sys-state-hover-primary: rgba(208, 188, 255, 0.08);
+    --md-sys-state-pressed-primary: rgba(208, 188, 255, 0.12);
+    --md-sys-state-hover-surface: rgba(230, 225, 229, 0.08);
+    --md-sys-state-pressed-surface: rgba(230, 225, 229, 0.12);
+
+    /* ═══════════════════════════════════════════════════
+     MOTION - Material 3 Easing & Duration
+  ═══════════════════════════════════════════════════ */
+    --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    --md-sys-motion-easing-legacy: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --md-sys-motion-duration-short1: 50ms;
+    --md-sys-motion-duration-short2: 100ms;
+    --md-sys-motion-duration-short3: 150ms;
+    --md-sys-motion-duration-short4: 200ms;
+    --md-sys-motion-duration-medium1: 250ms;
+    --md-sys-motion-duration-medium2: 300ms;
+    --md-sys-motion-duration-medium3: 350ms;
+    --md-sys-motion-duration-medium4: 400ms;
+    --md-sys-motion-duration-long1: 450ms;
+    --md-sys-motion-duration-long2: 500ms;
+
+    /* ═══════════════════════════════════════════════════
+     NAVIGATION RAIL
+  ═══════════════════════════════════════════════════ */
+    --nav-rail-width: 80px;
+}

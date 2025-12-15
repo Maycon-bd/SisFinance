@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { api } from '../services/api'
+import { Card } from '../components/ui/Card'
+import { Input } from '../components/ui/Input'
+import { Button } from '../components/ui/Button'
 
 export default function Register() {
   const [email, setEmail] = useState('')
@@ -15,25 +18,45 @@ export default function Register() {
     try {
       await api.post('/auth/register', { email, password })
       setSuccess('Cadastro realizado! Faça login.')
-      setTimeout(()=>navigate('/login'), 800)
+      setTimeout(() => navigate('/login'), 800)
     } catch (err: any) {
-      setError(err?.response?.data?.detail || 'Falha no cadastro')
+      console.error(err)
+      const detail = err?.response?.data?.detail
+      if (typeof detail === 'string') {
+        setError(detail)
+      } else if (Array.isArray(detail)) {
+        setError(detail.map(d => d.msg).join(', '))
+      } else {
+        setError('Falha no cadastro')
+      }
     }
   }
 
   return (
-    <div style={{maxWidth: 400, margin: '40px auto'}}>
+    <Card>
       <h2>Cadastrar</h2>
-      <form onSubmit={onSubmit} style={{display:'grid', gap:8}}>
-        <input placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} required />
-        <input placeholder="Senha" type="password" value={password} onChange={e=>setPassword(e.target.value)} required />
-        {error && <div style={{color:'red'}}>{error}</div>}
-        {success && <div style={{color:'green'}}>{success}</div>}
-        <button type="submit">Cadastrar</button>
+      <form onSubmit={onSubmit} className="auth-form">
+        <Input
+          placeholder="Email"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+        <Input
+          placeholder="Senha"
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+        />
+        {error && <div className="auth-error">{error}</div>}
+        {success && <div style={{ color: 'green', textAlign: 'center' }}>{success}</div>}
+        <Button type="submit" fullWidth>Cadastrar</Button>
       </form>
-      <div style={{marginTop:10}}>
-        <Link to="/login">Já tem conta? Entrar</Link>
+      <div className="auth-footer">
+        <Link to="/login">Já tem conta? <span>Entrar</span></Link>
       </div>
-    </div>
+    </Card>
   )
 }

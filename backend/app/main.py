@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 from .database import Base, engine, SessionLocal
+from dotenv import load_dotenv
+
+load_dotenv()
 from .models import Category
 from .routers import auth as auth_router
 from .routers import transactions as transactions_router
@@ -12,7 +15,11 @@ from .routers import reports as reports_router
 
 app = FastAPI(title="SysFinance API", version="0.1.0")
 
-origins = [os.getenv("FRONTEND_URL", "http://localhost:5173"), "*"]
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    os.getenv("FRONTEND_URL", "http://localhost:5173"),
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

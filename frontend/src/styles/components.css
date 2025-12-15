@@ -1,0 +1,531 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SISFINANCE - MATERIAL DESIGN 3 COMPONENTS
+   Reusable component styles following Material You specifications
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════
+   NAVIGATION RAIL - Material 3
+   Fixed left sidebar with icon + label navigation
+═══════════════════════════════════════════════════ */
+
+.m3-navigation-rail {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--nav-rail-width);
+    background: var(--md-sys-color-surface);
+    border-right: 1px solid var(--md-sys-color-outline-variant);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-6) 0;
+    gap: var(--spacing-1);
+    z-index: 1000;
+}
+
+.m3-navigation-rail__menu-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: var(--spacing-4);
+    transition: background var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-navigation-rail__menu-btn:hover {
+    background: var(--md-sys-state-hover-surface);
+}
+
+.m3-navigation-rail__menu-btn svg {
+    width: 24px;
+    height: 24px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.m3-navigation-rail__fab {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: var(--spacing-6);
+    box-shadow: var(--md-sys-elevation-1);
+    transition:
+        box-shadow var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard),
+        transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-navigation-rail__fab:hover {
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.m3-navigation-rail__fab:active {
+    transform: scale(0.95);
+}
+
+.m3-navigation-rail__fab svg {
+    width: 24px;
+    height: 24px;
+}
+
+.m3-navigation-rail__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+    flex: 1;
+}
+
+.m3-navigation-rail__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-1) var(--spacing-3);
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: background var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-navigation-rail__item:hover {
+    background: var(--md-sys-state-hover-surface);
+}
+
+.m3-navigation-rail__indicator {
+    width: 56px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-emphasized);
+}
+
+.m3-navigation-rail__item--active .m3-navigation-rail__indicator {
+    background: var(--md-sys-color-secondary-container);
+}
+
+.m3-navigation-rail__icon {
+    width: 24px;
+    height: 24px;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: color var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-navigation-rail__item--active .m3-navigation-rail__icon {
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.m3-navigation-rail__label {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-label-medium-font-size);
+    font-weight: var(--md-sys-typescale-label-medium-font-weight);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+    letter-spacing: var(--md-sys-typescale-label-medium-letter-spacing);
+    color: var(--md-sys-color-on-surface-variant);
+    text-align: center;
+    transition: color var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-navigation-rail__item--active .m3-navigation-rail__label {
+    color: var(--md-sys-color-on-surface);
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════
+   CARDS - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    padding: var(--spacing-6);
+    background: var(--md-sys-color-surface-container);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    transition:
+        transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        background var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+.m3-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--md-sys-elevation-2);
+    background: var(--md-sys-color-surface-container-high);
+}
+
+.m3-card--elevated {
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.m3-card--filled {
+    background: var(--md-sys-color-surface-container-highest);
+    box-shadow: none;
+}
+
+.m3-card--outlined {
+    background: var(--md-sys-color-surface);
+    box-shadow: none;
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+/* ═══════════════════════════════════════════════════
+   KPI CARD - Material 3 Metric Card
+═══════════════════════════════════════════════════ */
+
+.m3-kpi-card {
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.m3-kpi-card__icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-2);
+}
+
+.m3-kpi-card__icon-container--success {
+    background: var(--md-sys-color-success-container);
+    color: var(--md-sys-color-on-success-container);
+}
+
+.m3-kpi-card__icon-container--error {
+    background: var(--md-sys-color-error-container);
+    color: var(--md-sys-color-on-error-container);
+}
+
+.m3-kpi-card__icon-container--primary {
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+.m3-kpi-card__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.m3-kpi-card__label {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-label-medium-font-size);
+    font-weight: var(--md-sys-typescale-label-medium-font-weight);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+    letter-spacing: var(--md-sys-typescale-label-medium-letter-spacing);
+    color: var(--md-sys-color-on-surface-variant);
+    text-transform: uppercase;
+}
+
+.m3-kpi-card__value {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-headline-medium-font-size);
+    font-weight: var(--md-sys-typescale-headline-medium-font-weight);
+    line-height: var(--md-sys-typescale-headline-medium-line-height);
+    color: var(--md-sys-color-on-surface);
+    margin-top: var(--spacing-1);
+}
+
+.m3-kpi-card__value--success {
+    color: var(--md-sys-color-success);
+}
+
+.m3-kpi-card__value--error {
+    color: var(--md-sys-color-error);
+}
+
+/* ═══════════════════════════════════════════════════
+   FLOATING ACTION BUTTON (FAB) - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-fab {
+    position: fixed;
+    bottom: var(--spacing-8);
+    right: var(--spacing-8);
+    min-width: 56px;
+    height: 56px;
+    padding: 0 var(--spacing-4);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: none;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    box-shadow: var(--md-sys-elevation-3);
+    cursor: pointer;
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-label-large-font-size);
+    font-weight: var(--md-sys-typescale-label-large-font-weight);
+    transition:
+        box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+        background var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+.m3-fab:hover {
+    box-shadow: var(--md-sys-elevation-4);
+}
+
+.m3-fab:active {
+    transform: scale(0.96);
+}
+
+.m3-fab__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.m3-fab--extended {
+    padding: 0 var(--spacing-6);
+    min-width: auto;
+}
+
+.m3-fab--small {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: var(--radius-md);
+}
+
+.m3-fab--large {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    border-radius: var(--radius-xxl);
+}
+
+.m3-fab--large .m3-fab__icon {
+    width: 36px;
+    height: 36px;
+}
+
+/* ═══════════════════════════════════════════════════
+   TOP APP BAR - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-top-app-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-4) var(--spacing-6);
+    background: var(--md-sys-color-surface);
+    min-height: 64px;
+}
+
+.m3-top-app-bar__title-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.m3-top-app-bar__title {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-headline-medium-font-size);
+    font-weight: var(--md-sys-typescale-headline-medium-font-weight);
+    line-height: var(--md-sys-typescale-headline-medium-line-height);
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+}
+
+.m3-top-app-bar__subtitle {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-body-medium-font-size);
+    font-weight: var(--md-sys-typescale-body-medium-font-weight);
+    line-height: var(--md-sys-typescale-body-medium-line-height);
+    color: var(--md-sys-color-on-surface-variant);
+    margin: 0;
+}
+
+.m3-top-app-bar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+/* ═══════════════════════════════════════════════════
+   SELECT / DROPDOWN - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-select {
+    appearance: none;
+    padding: var(--spacing-3) var(--spacing-10) var(--spacing-3) var(--spacing-4);
+    background: var(--md-sys-color-surface-container-high);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: var(--radius-sm);
+    color: var(--md-sys-color-on-surface);
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-body-large-font-size);
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23CAC4D0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-3) center;
+    background-size: 20px;
+    transition:
+        border-color var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard),
+        background var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-select:hover {
+    background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.m3-select:focus {
+    border-color: var(--md-sys-color-primary);
+    border-width: 2px;
+    padding: calc(var(--spacing-3) - 1px) calc(var(--spacing-10) - 1px) calc(var(--spacing-3) - 1px) calc(var(--spacing-4) - 1px);
+}
+
+.m3-select option {
+    background: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+}
+
+/* ═══════════════════════════════════════════════════
+   AVATAR - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-title-medium-font-size);
+    font-weight: var(--md-sys-typescale-title-medium-font-weight);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-avatar:hover {
+    transform: scale(1.05);
+}
+
+.m3-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.m3-avatar--small {
+    width: 28px;
+    height: 28px;
+    font-size: var(--md-sys-typescale-label-medium-font-size);
+}
+
+.m3-avatar--large {
+    width: 56px;
+    height: 56px;
+    font-size: var(--md-sys-typescale-title-large-font-size);
+}
+
+/* ═══════════════════════════════════════════════════
+   ICON BUTTON - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-icon-button {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface-variant);
+    transition:
+        background var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard),
+        color var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-standard);
+}
+
+.m3-icon-button:hover {
+    background: var(--md-sys-state-hover-surface);
+}
+
+.m3-icon-button:active {
+    background: var(--md-sys-state-pressed-surface);
+}
+
+.m3-icon-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ═══════════════════════════════════════════════════
+   DIVIDER - Material 3
+═══════════════════════════════════════════════════ */
+
+.m3-divider {
+    height: 1px;
+    background: var(--md-sys-color-outline-variant);
+    border: none;
+    margin: 0;
+}
+
+.m3-divider--inset {
+    margin-left: var(--spacing-4);
+    margin-right: var(--spacing-4);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE - Mobile Navigation Bar
+═══════════════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+    .m3-navigation-rail {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        width: 100%;
+        height: 80px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: var(--spacing-3) var(--spacing-4);
+        border-right: none;
+        border-top: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    .m3-navigation-rail__menu-btn,
+    .m3-navigation-rail__fab {
+        display: none;
+    }
+
+    .m3-navigation-rail__items {
+        flex-direction: row;
+        flex: 1;
+        justify-content: space-around;
+    }
+
+    .m3-fab {
+        bottom: 96px;
+    }
+}

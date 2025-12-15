@@ -1,13 +1,28 @@
 from datetime import date, datetime, timedelta
 from typing import Optional, List, Dict
-from pydantic import BaseModel, EmailStr, Field
-
+from pydantic import BaseModel, EmailStr, Field, field_validator
+import re
 
 # Auth
 class UserCreate(BaseModel):
     email: EmailStr
-    password: str = Field(min_length=6)
+    password: str
 
+    @field_validator('password')
+    @classmethod
+    def validate_password(cls, v: str):
+        if len(v) < 6:
+            raise ValueError('A senha deve ter no mínimo 6 caracteres')
+        return v
+    
+    @field_validator('email')
+    @classmethod
+    def validate_email(cls, v: str):
+         # Pydantic's EmailStr validation happens before this, but its error is hard to customize easily without a custom type.
+         # So we can catch the basic structure here or let frontend handle "invalid email".
+         # However, to be safe, since EmailStr is already validated, this might not run if Pydantic fails first.
+         # Actually, Pydantic v2 runs logic differently.
+         return v
 
 class UserLogin(BaseModel):
     email: EmailStr

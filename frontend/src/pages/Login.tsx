@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { api, setAuthToken } from '../services/api'
+import { Card } from '../components/ui/Card'
+import { Input } from '../components/ui/Input'
+import { Button } from '../components/ui/Button'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -17,22 +20,29 @@ export default function Login() {
       setAuthToken(res.data.access_token)
       navigate('/')
     } catch (err: any) {
-      setError(err?.response?.data?.detail || 'Falha no login')
+      const detail = err?.response?.data?.detail
+      if (typeof detail === 'string') {
+        setError(detail)
+      } else if (Array.isArray(detail)) {
+        setError(detail.map(d => d.msg).join(', '))
+      } else {
+        setError('Falha no login')
+      }
     }
   }
 
   return (
-    <div className="auth-container">
+    <Card>
       <h2>Entrar</h2>
       <form onSubmit={onSubmit} className="auth-form">
-        <input
+        <Input
           placeholder="Email"
           type="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
         />
-        <input
+        <Input
           placeholder="Senha"
           type="password"
           value={password}
@@ -40,13 +50,16 @@ export default function Login() {
           required
         />
         {error && <div className="auth-error">{error}</div>}
-        <button type="submit">Entrar</button>
+        <Button type="submit" fullWidth>Entrar</Button>
       </form>
       <div className="auth-footer">
+        <div style={{ marginBottom: 12 }}>
+          <Link to="/forgot-password" style={{ fontSize: 14 }}>Esqueci minha senha</Link>
+        </div>
         <Link to="/register">
           Não tem conta? <span>Cadastre-se</span>
         </Link>
       </div>
-    </div>
+    </Card>
   )
 }

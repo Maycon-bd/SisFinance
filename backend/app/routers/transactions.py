@@ -15,7 +15,7 @@ router = APIRouter(prefix="/transactions", tags=["transactions"])
 @router.post("/", response_model=TransactionOut)
 def create_transaction(payload: TransactionCreate, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     if payload.type not in ("income", "expense"):
-        raise HTTPException(status_code=400, detail="Tipo deve ser 'income' ou 'expense'")
+        raise HTTPException(status_code=400, detail="O tipo deve ser 'receita' (income) ou 'despesa' (expense)")
     if payload.category_id:
         cat = db.query(Category).filter(Category.id == payload.category_id).first()
         if not cat:
