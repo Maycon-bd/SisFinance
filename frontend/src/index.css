@@ -253,6 +253,17 @@ button:focus-visible {
   background: var(--md-sys-color-surface-container-highest);
 }
 
+.btn.danger {
+  background: var(--md-sys-color-error);
+  color: var(--md-sys-color-on-error);
+}
+
+.btn.danger:hover {
+  box-shadow: var(--md-sys-elevation-1);
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+}
+
 /* ═══════════════════════════════════════════════════
    FORM ELEMENTS
 ═══════════════════════════════════════════════════ */

@@ -20,7 +20,15 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        # Handle edge case where hash might be invalid or empty
+        if not hashed_password or len(hashed_password) < 20:
+            return False
+        return pwd_context.verify(plain_password, hashed_password)
+    except Exception as e:
+        # Log the error but don't crash - password verification failed
+        print(f"Password verification error: {e}")
+        return False
 
 
 def get_password_hash(password: str) -> str:

@@ -23,6 +23,15 @@ const navItems: NavItem[] = [
         ),
     },
     {
+        path: '/accounts',
+        label: 'Contas',
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+            </svg>
+        ),
+    },
+    {
         path: '/transactions',
         label: 'Transações',
         icon: (
@@ -65,10 +74,15 @@ export function NavigationRail() {
 
     return (
         <nav className="m3-navigation-rail">
-            {/* Logo / Menu Button Area */}
+            {/* Logo / Menu Button Area - Clicável para Dashboard */}
             <div className="m3-navigation-rail__header">
-                <div className="m3-navigation-rail__logo">
-                    <span className="m3-navigation-rail__logo-icon">💰</span>
+                <div
+                    className="m3-navigation-rail__logo"
+                    onClick={() => navigate('/')}
+                    style={{ cursor: 'pointer' }}
+                    title="Ir para Dashboard"
+                >
+                    <img src="/logo.png" alt="SysFinance" className="m3-navigation-rail__logo-img" style={{ width: 32, height: 32 }} />
                     <span className="m3-navigation-rail__logo-text">SysFinance</span>
                 </div>
             </div>

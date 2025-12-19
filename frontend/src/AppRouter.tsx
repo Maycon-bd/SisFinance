@@ -7,6 +7,7 @@ import Transactions from './pages/Transactions'
 import Reports from './pages/Reports'
 import Budgets from './pages/Budgets'
 import Settings from './pages/Settings'
+import Accounts from './pages/Accounts'
 import { AppShell } from './components/layout/AppShell'
 import type { ReactNode } from 'react'
 
@@ -35,6 +36,16 @@ export default function AppRouter() {
         <Route path="/register" element={<Register />} />
 
         {/* Protected Routes - With AppShell */}
+        <Route
+          path="/accounts"
+          element={
+            <PrivateRoute>
+              <AppShell>
+                <Accounts />
+              </AppShell>
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/"
           element={
